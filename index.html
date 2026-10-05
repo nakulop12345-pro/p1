@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#081018" />
+  <meta name="description" content="RPS Public School, Dharuhera — interactive digital campus experience." />
+  <title>RPS Dharuhera — Digital Campus</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/ui.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="webgl" aria-label="Interactive 3D digital campus"></canvas>
+
+    <div id="loading" class="screen-layer">
+      <div class="loading-brand">
+        <div class="rps-mark">RPS</div>
+        <div class="eyebrow">RAO PAHLAD SINGH</div>
+        <div class="loading-title">PUBLIC SCHOOL</div>
+        <div class="loading-place">DHARUHERA</div>
+      </div>
+      <div class="loading-track"><span id="loading-bar"></span></div>
+      <div class="loading-status" id="loading-status">INITIALIZING DIGITAL CAMPUS</div>
+    </div>
+
+    <div id="intro" class="screen-layer hidden">
+      <div class="intro-copy">
+        <div class="eyebrow">RPS PUBLIC SCHOOL</div>
+        <h1>DHARUHERA</h1>
+        <p>Enter an interactive digital campus built around learning, achievement, creativity and the future.</p>
+        <button id="enter-campus" class="primary-btn">ENTER CAMPUS <span>↗</span></button>
+        <div class="intro-meta">
+          <span>CBSE 531312</span>
+          <span>SCHOOL 41300</span>
+          <span>EST. 2015</span>
+        </div>
+      </div>
+      <div class="intro-hint">DRAG · SCROLL · CLICK TO EXPLORE</div>
+    </div>
+
+    <header id="topbar" class="hud hidden">
+      <a class="brand" href="#" id="brand-home" aria-label="RPS Dharuhera home">
+        <span class="brand-mark">RPS</span>
+        <span>
+          <b>RAO PAHLAD SINGH</b>
+          <small>PUBLIC SCHOOL · DHARUHERA</small>
+        </span>
+      </a>
+
+      <nav id="nav" aria-label="Primary navigation">
+        <button data-route="explore" class="nav-btn active">EXPLORE</button>
+        <button data-route="campus" class="nav-btn">CAMPUS</button>
+        <button data-route="academics" class="nav-btn">ACADEMICS</button>
+        <button data-route="achievements" class="nav-btn">ACHIEVEMENTS</button>
+        <button data-route="facilities" class="nav-btn">FACILITIES</button>
+        <button data-route="about" class="nav-btn">ABOUT</button>
+        <button data-route="contact" class="nav-btn">CONTACT</button>
+      </nav>
+
+      <div class="top-actions">
+        <button id="tour-btn" class="icon-btn" title="Start guided tour">TOUR</button>
+        <button id="time-btn" class="icon-btn" title="Toggle day/evening">DAY</button>
+        <button id="quality-btn" class="icon-btn" title="Change quality">HIGH</button>
+        <button id="sound-btn" class="icon-btn" title="Toggle sound">SFX</button>
+        <button id="mobile-menu" class="icon-btn mobile-only" aria-expanded="false">MENU</button>
+      </div>
+    </header>
+
+    <div id="mobile-nav" class="hud mobile-nav hidden">
+      <button data-route="explore">EXPLORE</button>
+      <button data-route="campus">CAMPUS</button>
+      <button data-route="academics">ACADEMICS</button>
+      <button data-route="achievements">ACHIEVEMENTS</button>
+      <button data-route="facilities">FACILITIES</button>
+      <button data-route="about">ABOUT</button>
+      <button data-route="contact">CONTACT</button>
+    </div>
+
+    <aside id="hud-info" class="hud info-panel hidden" aria-live="polite">
+      <div class="panel-kicker" id="panel-kicker">DIGITAL CAMPUS</div>
+      <h2 id="panel-title">Explore RPS</h2>
+      <p id="panel-copy">Move around the campus and select buildings to discover verified school information.</p>
+      <div id="panel-stats" class="stat-grid"></div>
+      <button id="panel-action" class="text-btn">OPEN DETAILS <span>→</span></button>
+    </aside>
+
+    <div id="zone-tag" class="zone-tag hidden">
+      <span class="zone-dot"></span>
+      <span id="zone-name">CENTRAL CAMPUS</span>
+    </div>
+
+    <div id="tour-progress" class="tour-progress hidden">
+      <span id="tour-count">01 / 07</span>
+      <span id="tour-name">MAIN ENTRANCE</span>
+      <button id="tour-stop" class="text-btn">STOP</button>
+    </div>
+
+    <div id="details" class="details-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="details-title">
+      <div class="details-backdrop" id="details-backdrop"></div>
+      <section class="details-sheet hud">
+        <button id="details-close" class="close-btn" aria-label="Close">×</button>
+        <div class="panel-kicker" id="details-kicker">RPS DHARUHERA</div>
+        <h2 id="details-title">Campus</h2>
+        <p id="details-copy"></p>
+        <div id="details-body"></div>
+        <div class="source-row" id="details-source"></div>
+      </section>
+    </div>
+
+    <footer id="footer" class="hud footer hidden">
+      <span>V.P.O. GHATAL MAHANIYAWAS · DHARUHERA–BHIWADI EXPRESSWAY · REWARI, HARYANA</span>
+      <span><a href="https://rpsdharuhera.edu.in/" target="_blank" rel="noopener">OFFICIAL SCHOOL WEBSITE ↗</a></span>
+    </footer>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
